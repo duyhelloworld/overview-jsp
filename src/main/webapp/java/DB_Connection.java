@@ -18,8 +18,7 @@ public class DB_Connection {
         }
     }
     
-    public static boolean isConnected() {
-        Connection conn = getConnection();
+    public static boolean isConnected(Connection conn) {
         if (conn == null) {
             return false;
         }

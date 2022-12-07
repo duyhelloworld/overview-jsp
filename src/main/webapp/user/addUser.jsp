@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <html>
   <head>
-    <title>Login</title>
+    <title>Sign Up</title>
   </head>
   <body>
     <span>Enter your information</span>

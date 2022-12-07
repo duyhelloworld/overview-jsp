@@ -3,13 +3,6 @@
 <html>
     <head><title>List User</title></head>
 <body>
-    <%
-    if (request.getParameter("username") == "admin" && request.getParameter("password") == "password"){
-        
-    }
-    else {
-        response.sendRedirect("/overview-jsp")
-    }
-    %>
+    
 </body>
 </html>
