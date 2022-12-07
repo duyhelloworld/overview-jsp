@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 @WebServlet(urlPatterns = {"/user"})
 public class AddUser extends HttpServlet{
     
-        
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
             // View all user
