@@ -1,3 +1,5 @@
+package Model;
+
 public class Admin {
     private String username = "duy";
     private String password = "123456";
