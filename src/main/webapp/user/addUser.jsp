@@ -7,7 +7,7 @@
   <body>
     <span>Enter your information</span>
     <br />
-    <form action="viewForm.jsp" method="post">
+    <form action="/overview-jsp/user" method="post">
       <input type="text" name="username" placeholder="Username :" />
       <br>
       <input type="password" name="password" placeholder="Password : " />
@@ -37,6 +37,5 @@
       <br>
       <input type="submit" value="Submit">
     </form>
-
   </body>
 </html>
