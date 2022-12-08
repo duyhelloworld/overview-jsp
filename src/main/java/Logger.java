@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Model.Admin;
 
-@WebFilter(urlPatterns = "/user/login")
+@WebFilter(urlPatterns = "/user")
 public class Logger implements Filter{
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -22,23 +22,23 @@ public class Logger implements Filter{
         
         String username = req.getParameter("username");
         String password = req.getParameter("password");
+
         Admin admin = new Admin();
         if (username == admin.getUsername() && password == admin.getPassword()) {
             System.out.println("Admin");
             resp.sendRedirect("/overview-jsp/home/admin");
         }
         System.out.println("Filtered");
+         
     }
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        // TODO Auto-generated method stub
         
     }
 
     @Override
     public void destroy() {
-        // TODO Auto-generated method stub
         
     }
 }

@@ -1,5 +1,8 @@
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +16,7 @@ public class AddUser extends HttpServlet{
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
             // View users
+
             
         }
     
@@ -29,6 +33,27 @@ public class AddUser extends HttpServlet{
                 resp.sendRedirect("/overview-jsp/error");
             }
 
-        
+            // String username = req.getParameter("username");
+            // String password = req.getParameter("password");
+            // String email = req.getParameter("email");
+            String tableName = "WebServlet";
+
+            // String cmd = "INSERT INTO `" + tableName + "` VALUE (default," + username + ", " + password + ", " + email
+            //         + ") ";
+            String cmd = "";
+
+            try {
+                PreparedStatement stm = conn.prepareStatement(cmd);
+                if (stm.execute()) {
+                    
+                    System.out.println("exec OK");
+                    resp.sendRedirect("http://google.com");
+                } else {
+                    System.out.println("Exec failure");
+                    resp.sendRedirect("/");
+                }
+            } catch (SQLException e) {
+                System.out.println("Create Statement Fail");
+            }
         }
 }

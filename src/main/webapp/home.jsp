@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<form%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <html>
     <head><title>JSP</title></head>
@@ -6,8 +6,13 @@
     <p>Today's date: <%= (new java.util.Date()).toLocaleString()%></p>
     <span style="text-align: center;">Home Page</span>
     <br>
-    <a href="/overview-jsp/user/signup">Click to sign up</a>
+    <a href="./user/addUser.jsp">Click to sign up</a>
     <br>
-    <a href="/overview-jsp/user/signin">Click to sign in</a>
+    <a href="./user/loginUser.jsp">Click to sign in</a>
+
+    <!-- Temp -->
+    <form action="/overview-jsp/user/view" method="get">
+        <input type="submit" value="View Users">
+    </form>
 </body>
 </html>
