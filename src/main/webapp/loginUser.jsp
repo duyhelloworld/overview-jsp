@@ -3,7 +3,7 @@
 <html>
     <head><title>Login</title></head>
 <body>
-    <form action="/user" method="post">
+    <form action="/" method="post">
         Enter your information
         <input type="text" name="username">
         <br>

@@ -1,3 +1,4 @@
+package Role.Admin;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -15,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import data_access.DB_Connection;
 import model.User;
 
-@WebServlet(urlPatterns = { "/user/view" })
+@WebServlet(urlPatterns = { "/user/users/" })
 public class ViewUsers extends HttpServlet {
 
     @Override
