@@ -8,11 +8,6 @@
     <br>
     <a href="./user/addUser.jsp">Click to sign up</a>
     <br>
-    <a href="./user/loginUser.jsp">Click to sign in</a>
-
-    <!-- Temp -->
-    <form action="/overview-jsp/user/view" method="get">
-        <input type="submit" value="View Users">
-    </form>
+    <a href="loginUser.jsp">Click to sign in</a>
 </body>
 </html>

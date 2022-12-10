@@ -16,6 +16,14 @@ CREATE TABLE U_Fav (
     fav_readBook BIT NULL
 );
 
+CREATE TABLE Admin (
+    a_id INT PRIMARY KEY AUTO_INCREMENT,
+    a_name VARCHAR(40) NOT NULL,
+    a_pass VARCHAR(20) NOT NULL,
+    a_mail VARCHAR(20) NOT NULL,
+    a_phone CHAR(10) NOT NULL
+);
+
 ALTER TABLE `User`
 ADD Foreign Key (u_id) REFERENCES U_Fav(u_id_fav);
 

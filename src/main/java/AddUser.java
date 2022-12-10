@@ -1,23 +1,33 @@
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = {"/user"})
+import data_access.DB_Connection;
+
+@WebServlet(urlPatterns = {"/user/new"})
 public class AddUser extends HttpServlet{
     
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            // View users
+            Cookie[] cookies = req.getCookies();
+            for (Cookie cookie : cookies) {
+                if (cookie.getName() == "username") {
+                    String username = cookie.getValue();
+                    
 
-            
+                }
+                else {
+                    resp.sendRedirect("/overview-jsp/");
+                }
+            }
         }
     
         @Override

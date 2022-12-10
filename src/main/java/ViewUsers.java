@@ -12,17 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.User;
+import data_access.DB_Connection;
+import model.User;
 
 @WebServlet(urlPatterns = { "/user/view" })
 public class ViewUsers extends HttpServlet {
-
-    //     @Override
-    //     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    //         resp.setContentType("text/html");
-    //         PrintWriter printer = resp.getWriter();
-    //         printer.println("Only Admin can view all users");
-    // }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
