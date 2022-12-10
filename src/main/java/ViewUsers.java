@@ -54,6 +54,7 @@ public class ViewUsers extends HttpServlet {
                             + ",\n\"password\" : " + user.getPassword() + ",\n\"email\" : " + user.getEmail() + "\n}");
                     printWriter.println(user.getId() < total ? ", " : "]");
                 }
+                printWriter.println("\"total\" : \"" + total + "\"");
             } else {
                 System.out.println("Exec failure");
                 resp.sendRedirect("/");

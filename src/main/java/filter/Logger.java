@@ -55,6 +55,7 @@ public class Logger implements Filter{
                         String phone = rs.getString("a_phone");
                         Admin admin = new Admin(id, email, usr, pss, phone);
                         listAdmins.add(admin);
+                        System.out.println(admin);
                     }
                     
                     for (Admin adminn : listAdmins) {
@@ -73,10 +74,10 @@ public class Logger implements Filter{
                             } else {
                                 resp.sendError(401);
                             }
-                        }
-                        else 
+                        } else
                             resp.sendRedirect("https://google.com");
                     }
+                    
 
                 } else {
                     System.out.println("Exec failure");
