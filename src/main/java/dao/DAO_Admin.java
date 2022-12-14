@@ -1,4 +1,4 @@
-package Role.Admin;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,17 +6,12 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import data_access.DB_Connection;
 import model.Admin;
 
-public class ListAdmins {
-    private static List<Admin> listAdmins = new ArrayList<Admin>();
+public class DAO_Admin {
+    private List<Admin> listAdmins = new ArrayList<Admin>();
 
-    public ListAdmins() {
-        listAdmins = getListAdmins();
-    }
-
-    public static void setAdmins(Long id, String username, String password, String email, String phone) {
+    public void setAdmins(Long id, String username, String password, String email, String phone) {
         Admin admin = new Admin(id, email, username, password, phone);
         listAdmins.add(admin);
     }
@@ -30,10 +25,18 @@ public class ListAdmins {
         return false;
     }
 
-    public static List<Admin> getListAdmins() {
-        Connection conn = DB_Connection.getConnection();
+    public void save(Admin admin) {
 
-        if (!DB_Connection.isConnected(conn)) {
+    }
+    
+    public void update(Admin admin) {
+        
+    }
+
+    public List<Admin> getListAdmins() {
+        Connection conn = DAO.getConnection();
+
+        if (!DAO.isConnected(conn)) {
             System.out.println("Not connected");
             return null;
         }
@@ -51,9 +54,9 @@ public class ListAdmins {
                     String pss = rs.getString("a_pass");
                     String email = rs.getString("a_mail");
                     String phone = rs.getString("a_phone");
-                    ListAdmins.setAdmins(id, usr, pss, email, phone);
+                    this.setAdmins(id, usr, pss, email, phone);
                 }
-                return ListAdmins.getListAdmins();
+                return this.getListAdmins();
             } else {
                 System.out.println("Execute failure!");
                 return null;
@@ -62,5 +65,5 @@ public class ListAdmins {
             System.out.println(e);
         }
         return null;
-    }
+    }   
 }

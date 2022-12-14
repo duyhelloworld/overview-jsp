@@ -1,10 +1,9 @@
-package data_access;
+package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class DB_Connection {
-    
-    public static Connection getConnection() {
+public class DAO {
+    static Connection getConnection() {
         String DB_name = "WebServlet";
         String url = "jdbc:mysql://localhost:3306/" + DB_name;
         String usr = "duyaiti";
@@ -25,4 +24,7 @@ public class DB_Connection {
         System.out.println("Connect Success");
         return true;
     }
+    
+
+
 }
