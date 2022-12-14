@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = { "/", "/home", "/trang-chu", "/homepage" })
 public class HomePage extends HttpServlet{
-
+    
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/user/home.jsp");
@@ -21,9 +21,14 @@ public class HomePage extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/javascript");
-        PrintWriter out = resp.getWriter();
-        out.println("alert(\"This method is not supported!\")");
-        out.close();
+        doGet(req, resp);
+    }
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
+    }
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
     }
 }

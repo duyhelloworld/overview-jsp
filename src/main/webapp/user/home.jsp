@@ -6,8 +6,21 @@
     <p>Today's date: <%= (new java.util.Date()).toLocaleString()%></p>
     <span style="text-align: center;">Home Page</span>
     <br>
-    <a href="./user/addUser.jsp">Click to sign up</a>
-    <br>
-    <a href="loginUser.jsp">Click to sign in</a>
+    <%
+        Cookie[] useCookies = request.getCookies();
+                    if (!userCookies.equals(null)) {
+                        for (Cookie userCk : userCookies) {
+                            String userCk_user = userCk.getName();
+                            String userCK_pass = userCk.getValue();
+                            if (DAO_User.validate(userCk_user, userCK_pass)) {
+                                out.println("OK, tk");
+                                break;
+                            }
+                        }
+                    }
+                    else {
+                        out.println("Not tk");
+                    }
+    %>
 </body>
 </html>

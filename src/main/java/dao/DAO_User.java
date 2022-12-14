@@ -12,14 +12,6 @@ public class DAO_User {
     private static List<User> listUser = new ArrayList<User>();
     private static String tableName = "User";
 
-    public static String getTableName() {
-        return tableName;
-    }
-
-    public void setTableName(String tableName) {
-        DAO_User.tableName = tableName;
-    }
-
     public static void setUser(int id, String username, String pass, String email, String phone) {
         User user = new User(id, username, pass, email, phone);
         listUser.add(user);
@@ -32,7 +24,7 @@ public class DAO_User {
             return null;
         }
 
-        String cmd = "SELECT * FROM " + DAO_User.getTableName();
+        String cmd = "SELECT * FROM " + tableName;
         try (PreparedStatement stm = conn.prepareStatement(cmd)) {
             if (stm.execute()) {
                 ResultSet rs = stm.executeQuery();
@@ -55,7 +47,7 @@ public class DAO_User {
 
     public static Boolean validate(String username, String password) {
         boolean status = false;
-        String cmd = "SELECT * FROM " + DAO_User.getTableName() + " WHERE u_name=? + u_pass=?";
+        String cmd = "SELECT * FROM " + tableName + " WHERE u_name=? AND u_pass=?";
         try {
             PreparedStatement stm = DAO.getConnection().prepareStatement(cmd);
             stm.setString(1, username);
@@ -66,5 +58,14 @@ public class DAO_User {
             System.out.println(e);
         }
         return status;
+
+        // >>> Right way: 
+        // List<User> list = DAO_User.getListUser();
+        // for (User user : list) {
+        //     if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+        //         return true;
+        //     }
+        // }
+        // return false;
     }
 }
